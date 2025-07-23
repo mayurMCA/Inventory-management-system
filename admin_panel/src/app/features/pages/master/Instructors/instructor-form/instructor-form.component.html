@@ -1,0 +1,95 @@
+<div class="row bg-white">
+  <div class="col-12 rounded-top p-x-20 p-y-15 border-bottom">
+    <div class="row align-items-center">
+      <div class="col-6">
+        <!-- <p class="m-0 fw-bold"> {{ id ? "Edit" : "Add" }} Blogs</p> -->
+      </div>
+      <div class="col-6 text-end">
+        <button mat-flat-button (click)="goBack()" class="add">
+         <mat-icon class="me-1">arrow_back</mat-icon> Back
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 p-x-20 pt-3 bg-white">
+ 
+ <form [formGroup]="form" class="row g-3">
+  <!-- Full Name -->
+  <div class="col-md-6">
+    <label class="form-label">Full Name <span class="text-danger">*</span></label>
+    <input type="text" class="form-control" formControlName="fullName" placeholder="Enter full name" />
+  </div>
+
+  <!-- Email -->
+  <div class="col-md-6">
+    <label class="form-label">Email <span class="text-danger">*</span></label>
+    <input type="email" class="form-control" formControlName="email" placeholder="Enter email" />
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label">Phone <span class="text-danger">*</span></label>
+    <input type="text" class="form-control" formControlName="phone" placeholder="Enter phone number" />
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label">Gender</label>
+    <ng-select
+      [items]="['Male', 'Female', 'Other']"
+      placeholder="Select gender"
+      formControlName="gender">
+    </ng-select>
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label">Date of Birth</label>
+    <input type="date" class="form-control" formControlName="dob" />
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label">Qualification</label>
+    <input type="text" class="form-control" formControlName="qualification" placeholder="e.g., MCA, B.Tech" />
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label">Skills</label>
+    <ng-select
+      [items]="skillOptions"
+      [multiple]="true"
+      placeholder="Select skills"
+      formControlName="skills">
+    </ng-select>
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label">Joining Date</label>
+    <input type="date" class="form-control" formControlName="joiningDate" />
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label">Status</label>
+    <ng-select
+      [items]="['Active', 'Inactive']"
+      placeholder="Select status"
+      formControlName="status">
+    </ng-select>
+  </div>
+
+  <div class="col-12">
+    <label class="form-label">Address</label>
+    <textarea rows="3" class="form-control" formControlName="address" placeholder="Enter address"></textarea>
+  </div>
+
+</form>
+  </div>
+
+  <div class="col-12 bg-white rounded-top p-y-15 border-bottom">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-8 col-md-6 col-lg-3 text-center">
+        <button class="w-100" mat-flat-button>
+          {{ id ? "Update" : "Submit" }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

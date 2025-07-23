@@ -1,0 +1,101 @@
+<div class="row bg-white">
+  <div class="col-12 rounded-top p-x-20 p-y-15 border-bottom">
+    <div class="row align-items-center">
+      <div class="col-6">
+        <!-- <p class="m-0 fw-bold"> {{ id ? "Edit" : "Add" }} Blogs</p> -->
+      </div>
+      <div class="col-6 text-end">
+        <button mat-flat-button (click)="navigateTo('/dashboard/enquiry-list')" class="add">
+         <mat-icon class="me-1">arrow_back</mat-icon> Back
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 p-x-20 pt-3 bg-white">
+    <form [formGroup]="form">
+      <div class="row p-0">
+        <div class="col-6 mb-4">
+          <label class="form-label">Full Name</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter name"
+            formControlName="name"
+          />
+        </div>
+        <div class="col-6 mb-4">
+          <label class="form-label">College</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter college"
+            formControlName="college"
+          />
+        </div>
+        <div class="col-6 mb-4">
+          <label class="form-label">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter email"
+            formControlName="email"
+          />
+        </div>
+        <div class="col-6 mb-4">
+          <label class="form-label">Branch</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter branch"
+            formControlName="branch"
+          />
+        </div>
+        <div class="col-6 mb-4">
+          <label class="form-label">Mobile</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter mobile"
+            formControlName="mobile"
+          />
+        </div>
+        <div class="col-6 mb-4">
+          <label class="form-label">Semester</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter semester"
+            formControlName="semester"
+          />
+        </div>
+        <div class="col-6 mb-4">
+          <label class="form-label">Pass Out Year</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="passyear"
+          />
+        </div>
+         <div class="col-md-6 mb-4 px-3">
+          <label class="form-label">Enquiry For</label>
+          <ng-select bindLabel=""
+            formControlName="enquryfor" >
+          </ng-select>
+        </div>
+
+       
+      </div>
+    </form>
+  </div>
+
+  <div class="col-12 bg-white rounded-top p-y-15 border-bottom">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-8 col-md-6 col-lg-3 text-center">
+        <button class="w-100" mat-flat-button>
+          {{ id ? "Update" : "Submit" }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+[
+  {
+    "_id": "64a687b4e9143bffd820fb3d",
+    "roleName": "Super Admin",
+    "displayRoleName": "Super Admin"
+  },
+  {
+    "_id": "64a687b4e9143bffd820fb3e",
+    "roleName": "Admin",
+    "displayRoleName": "Admin"
+  }
+]

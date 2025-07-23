@@ -1,0 +1,10 @@
+{ 
+  "mobile": "9359443060",
+  "email": "superadmin@gmail.com",
+  "firstName": "Super",
+  "lastName": "Admin", 
+  "password": "Admin@1234",
+  "status": "active",
+  "role": "SUPER_ADMIN",
+  "DOB":"12-12-2024"
+}

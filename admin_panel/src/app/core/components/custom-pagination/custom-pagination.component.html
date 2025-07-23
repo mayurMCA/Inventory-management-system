@@ -1,0 +1,31 @@
+<div class="row align-items-center justify-content-between">
+  <!-- Page Size Dropdown -->
+  <div class="col-md-auto">
+    <mat-form-field appearance="outline" style="width: 150px; margin-top: 20px">
+      <mat-label>Items per page</mat-label>
+      <mat-select
+        [(value)]="pageSize"
+        (selectionChange)="onPageSizeChange($event.value)"
+      >
+        <mat-option *ngFor="let opt of pageLimitOptions" [value]="opt.value">
+          {{ opt.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- Paginator -->
+  <div class="col-md-auto text-end">
+    <mat-paginator
+      [length]="collection"
+      [pageSize]="pageSize"
+      [pageIndex]="pageIndex"
+      [pageSizeOptions]="[]"
+      [hidePageSize]="true"
+      (page)="onPageChange($event)"
+    >
+    </mat-paginator>
+  </div>
+</div>
+
+
