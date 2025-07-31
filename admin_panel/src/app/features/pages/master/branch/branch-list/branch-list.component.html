@@ -1,0 +1,91 @@
+<!-- FORM SECTION -->
+<div class="row bg-white rounded p-3 mb-4">
+  <div class="col-12 border-bottom mb-3 d-flex justify-content-between align-items-center">
+    <h5 class="fw-bold m-0">{{ id ? "Update" : "Add" }} Branch</h5>
+    <button mat-flat-button color="primary add" (click)="goBack()" class="my-3">
+      <mat-icon class="me-1">arrow_back</mat-icon> Back
+    </button>
+  </div>
+
+  <form [formGroup]="Form" class="row g-3">
+
+    <div class="col-md-6">
+      <label class="form-label">Branch Name <span class="text-danger">*</span></label>
+      <input type="text" class="form-control" placeholder="Enter name" formControlName="title" />
+    </div>
+
+
+    <div class="col-12 d-flex justify-content-center gap-3 mt-4">
+      <button class="btn btn-primary w-25" mat-flat-button type="button" (click)="submit()">
+        {{ id ? "Update" : "Submit" }}
+      </button>
+      <button class="btn btn-secondary w-25" mat-flat-button type="button">
+        Reset
+      </button>
+    </div>
+  </form>
+
+</div>
+
+<!-- TABLE SECTION -->
+<div class="row px-4 mt-4">
+  <div class="col-12 bg-white rounded-top p-y-15 border-bottom">
+    <div class="row align-items-center">
+      <div class="col-6">
+        <p class="m-0 fw-bold">All Branch</p>
+      </div>
+      <div class="col-6 d-flex justify-content-end mb-2">
+        <input type="text" class="form-control w-75 ms-1" placeholder="Search" [(ngModel)]="searchText"
+          (ngModelChange)="onSearchInputChange($event)" />
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 p-0">
+    <table class="table table-hover bg-light text-center mb-0">
+      <thead>
+        <tr>
+          <th>Sr No.</th>
+          <th>Branch Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="
+            let attr of attribute
+            let i = index
+          ">
+          <td>
+            {{ page * pageSize + i + 1 }}
+          </td>
+          <td>{{ attr?.title }}</td>
+
+          <td>
+            <div class="d-flex flex-wrap gap-2">
+              <span *ngFor="let val of attr?.value" class="badge bg-secondary">
+                {{ val }}
+              </span>
+            </div>
+          </td>
+          <td>
+            <div class="example-button-container">
+              <button mat-fab class="mx-3 action-btn" (click)="navigateTolist('dashboard/attribute', attr?._id)">
+                <span class="iconify routeIcon" [attr.data-icon]="'solar:pen-2-broken'"></span>
+              </button>
+              <button mat-fab class="action-btn" (click)="deletAttribute(attr?._id)">
+                <span class="iconify routeIcon" [attr.data-icon]="'solar:trash-bin-minimalistic-2-broken'"></span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-12 bg-white rounded-bottom py-2 px-3">
+    <app-custom-pagination [pageSize]="pageSize" [pageIndex]="page" [collection]="collection"
+      [pageLimitOptions]="pageLimitOptions" (pageSizeChange)="onPageSizeChange($event)"
+      (pageChange)="onPageChange($event)" (pageIndexChange)="page = $event"></app-custom-pagination>
+
+  </div>
+</div>

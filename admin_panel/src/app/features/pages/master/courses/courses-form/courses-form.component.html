@@ -1,0 +1,46 @@
+<div class="row bg-white">
+  <div class="col-12 rounded-top p-x-20 p-y-15 border-bottom">
+    <div class="row align-items-center">
+      <div class="col-6">
+        <p class="m-0 fw-bold"> {{ id ? "Edit" : "Add" }} Course</p>
+      </div>
+      <div class="col-6 text-end">
+        <button mat-flat-button (click)="navigateTo('/dashboard/courses-list')" class="add">
+         <mat-icon class="me-1">arrow_back</mat-icon> Back
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 p-x-20 pt-3 bg-white">
+    <form [formGroup]="form">
+      <div class="row p-0">
+        <div class="col-md-6 mb-4 px-3">
+          <label class="form-label">Course Name</label>
+          <input type="text" class="form-control" placeholder="Title" formControlName="courseName" />
+        </div>
+
+        <div class="col-md-6  mb-4 px-3">
+          <label class="form-label">Duration (in Months)</label>
+          <input type="number" class="form-control" placeholder="Enter duration" formControlName="durationInMonths" />
+        </div>
+
+
+        <div class="col-12 mb-4 px-3">
+          <label class="form-label">Description</label>
+          <textarea class="form-control" formControlName="description" rows="5"></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-12 bg-white rounded-top p-y-15 border-bottom">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-8 col-md-6 col-lg-3 text-center">
+        <button class="w-100" mat-flat-button (click)="submit()">
+          {{ id ? "Update" : "Submit" }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

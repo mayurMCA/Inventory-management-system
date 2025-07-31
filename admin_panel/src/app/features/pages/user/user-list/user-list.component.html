@@ -1,0 +1,65 @@
+<div class="row px-4">
+    <div class="col-12 bg-white rounded-top p-y-15 border-bottom">
+      <div class="row align-items-center">
+        <div class="col-6">
+          <p class="m-0 fw-bold">All Enquiry List</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0">
+      <table class="table table-hover bg-light mb-0">
+        <colgroup>
+          <col style="width: 5%" />
+          <col style="width: 15%" />
+          <col style="width: 50%" />
+          <col style="width: 30%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th></th>
+            <th class="text-start">Email</th>
+            <th>Mobile No.</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="
+              let item of users
+                | paginate : { itemsPerPage: pageSize, currentPage: page ,totalItems:collection};
+              let i = index
+            "
+          >
+            <td class="text-center">{{ pageSize * (page - 1) + (i + 1) }}</td>
+            <td class="text-start">{{ item?.email }}</td>
+            <td>{{ item?.mobile }}</td>
+            <td>{{ item?.role }}</td>
+  
+            <!-- <td>
+              <div class="example-button-container">
+                <button
+                  mat-fab
+                  class="mx-3 action-btn"
+                  (click)="navigateTo('/dashboard/enquiry-details', item?._id)"
+                >
+                  <span
+                    class="iconify routeIcon"
+                    matListItemIcon
+                    [attr.data-icon]="'solar:eye-bold'"
+                  ></span>
+                </button>
+              </div>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-12 bg-white rounded-top p-y-15 border-bottom">
+      <div class="row align-items-center justify-content-end">
+        <div class="col-6 text-end">
+          <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+  
